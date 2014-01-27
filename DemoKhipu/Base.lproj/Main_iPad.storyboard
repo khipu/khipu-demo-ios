@@ -1,0 +1,803 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ncu-gA-82O">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller - Bienvenido!-->
+        <scene sceneID="Lh0-fl-bUs">
+            <objects>
+                <viewController title="Bienvenido!" id="M0b-ah-tYo" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EJQ-mK-jfK"/>
+                        <viewControllerLayoutGuide type="bottom" id="8gD-DN-dfp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PP1-6O-l6D">
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="background.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="3nf-iJ-t3v">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="lUb-Vm-53U">
+                                <rect key="frame" x="20" y="20" width="728" height="107"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="107" id="AVb-Ic-T1y"/>
+                                </constraints>
+                                <string key="text">RESTAURANT
+Sabores Frescos</string>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="38"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qsL-ae-8zL">
+                                <rect key="frame" x="0.0" y="135" width="768" height="825"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="yhv-Qf-n9g" kind="embed" id="E1d-at-waM"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lUb-Vm-53U" firstAttribute="leading" secondItem="PP1-6O-l6D" secondAttribute="leading" constant="20" symbolic="YES" id="1PS-qg-XcX"/>
+                            <constraint firstItem="qsL-ae-8zL" firstAttribute="trailing" secondItem="3nf-iJ-t3v" secondAttribute="trailing" id="FPQ-BF-xAj"/>
+                            <constraint firstItem="qsL-ae-8zL" firstAttribute="leading" secondItem="PP1-6O-l6D" secondAttribute="leading" id="JKr-rH-5PH"/>
+                            <constraint firstItem="3nf-iJ-t3v" firstAttribute="top" secondItem="PP1-6O-l6D" secondAttribute="top" id="aac-Di-Vmt"/>
+                            <constraint firstAttribute="trailing" secondItem="lUb-Vm-53U" secondAttribute="trailing" constant="20" symbolic="YES" id="e5J-wF-eba"/>
+                            <constraint firstItem="qsL-ae-8zL" firstAttribute="centerX" secondItem="lUb-Vm-53U" secondAttribute="centerX" id="hmc-f3-Vj3"/>
+                            <constraint firstAttribute="bottom" secondItem="qsL-ae-8zL" secondAttribute="bottom" id="jBk-tu-aJm"/>
+                            <constraint firstItem="qsL-ae-8zL" firstAttribute="leading" secondItem="3nf-iJ-t3v" secondAttribute="leading" id="nOz-4E-EfM"/>
+                            <constraint firstItem="lUb-Vm-53U" firstAttribute="top" secondItem="PP1-6O-l6D" secondAttribute="top" constant="20" symbolic="YES" id="shT-hZ-cW0"/>
+                            <constraint firstAttribute="bottom" secondItem="3nf-iJ-t3v" secondAttribute="bottom" constant="-64" id="ta3-kF-Te6"/>
+                            <constraint firstItem="qsL-ae-8zL" firstAttribute="top" secondItem="lUb-Vm-53U" secondAttribute="bottom" constant="8" symbolic="YES" id="w1W-0S-nyf"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="Bienvenido!" id="80Y-12-O6M"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aGD-Cv-wcq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1110" y="-329"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="A6f-3q-HAX">
+            <objects>
+                <tableViewController id="yhv-Qf-n9g" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="lBc-7f-Usy">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="825"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="3D9-Bl-RLj">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="CYt-cB-eyp">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CYt-cB-eyp" id="tjv-Gw-Nob">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Best-Combo-Restaurant_1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="GeQ-jv-aW6">
+                                                    <rect key="frame" x="20" y="10" width="100" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Combo 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cL9-g9-zHF">
+                                                    <rect key="frame" x="139" y="20" width="161" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$ 3.990" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r34-9u-CdA">
+                                                    <rect key="frame" x="144" y="77" width="161" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="DWx-1a-SW1">
+                                        <rect key="frame" x="0.0" y="100" width="768" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DWx-1a-SW1" id="CQ8-y5-ep6">
+                                            <rect key="frame" x="0.0" y="0.0" width="735" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Best-Combo-Restaurant_2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="fcU-ss-SlV">
+                                                    <rect key="frame" x="20" y="10" width="100" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Combo 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIp-J9-nkt">
+                                                    <rect key="frame" x="139" y="20" width="161" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$ 4.990" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQi-u8-3CI">
+                                                    <rect key="frame" x="144" y="77" width="161" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <connections>
+                                            <segue destination="3k7-kD-Zpp" kind="push" id="bwe-xq-yga"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="VbG-Bh-QrC">
+                                        <rect key="frame" x="0.0" y="200" width="768" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VbG-Bh-QrC" id="tnE-fj-Ab3">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Best-Combo-Restaurant_1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="i9D-Kj-s7T">
+                                                    <rect key="frame" x="20" y="10" width="100" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Combo 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60z-Q7-GDQ">
+                                                    <rect key="frame" x="139" y="20" width="161" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$ 1.990" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWg-NO-Fwt">
+                                                    <rect key="frame" x="144" y="77" width="161" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Uxk-g9-ZtD">
+                                        <rect key="frame" x="0.0" y="300" width="768" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uxk-g9-ZtD" id="eQq-kl-HDS">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Best-Combo-Restaurant_1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="KJf-2Z-mIH">
+                                                    <rect key="frame" x="20" y="10" width="100" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Combo 4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gif-rL-9iG">
+                                                    <rect key="frame" x="139" y="20" width="161" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$ 3.990" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jx2-pb-VEn">
+                                                    <rect key="frame" x="144" y="77" width="161" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="h9h-eU-2rZ">
+                                        <rect key="frame" x="0.0" y="400" width="768" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h9h-eU-2rZ" id="T1q-1m-CsG">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Best-Combo-Restaurant_2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="N9n-qa-n9R">
+                                                    <rect key="frame" x="20" y="10" width="100" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Combo 5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GqX-1U-kU8">
+                                                    <rect key="frame" x="139" y="20" width="161" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$ 4.990" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEa-Tq-ayV">
+                                                    <rect key="frame" x="144" y="77" width="161" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0Ee-W5-ni2">
+                                        <rect key="frame" x="0.0" y="500" width="768" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Ee-W5-ni2" id="lyd-6m-vaf">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Best-Combo-Restaurant_1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="lnz-P5-Z30">
+                                                    <rect key="frame" x="20" y="10" width="100" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Combo 6" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7L-7h-y0g">
+                                                    <rect key="frame" x="139" y="20" width="161" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$ 1.990" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URr-QL-nn7">
+                                                    <rect key="frame" x="144" y="77" width="161" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="2jP-n3-pZK">
+                                        <rect key="frame" x="0.0" y="600" width="768" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2jP-n3-pZK" id="MGq-sQ-Zo7">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Best-Combo-Restaurant_1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="HFu-mw-SPG">
+                                                    <rect key="frame" x="20" y="10" width="100" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Combo 7" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CE-Z4-LOT">
+                                                    <rect key="frame" x="139" y="20" width="161" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$ 3.990" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mb1-F2-ZLc">
+                                                    <rect key="frame" x="144" y="77" width="161" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="7TR-d4-jbp">
+                                        <rect key="frame" x="0.0" y="700" width="768" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7TR-d4-jbp" id="Dsd-La-2yh">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Best-Combo-Restaurant_2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="v2e-Qc-bqm">
+                                                    <rect key="frame" x="20" y="10" width="100" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Combo 8" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTW-sB-sMf">
+                                                    <rect key="frame" x="139" y="20" width="161" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$ 4.990" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6M-iq-voW">
+                                                    <rect key="frame" x="144" y="77" width="161" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="XuP-Wb-Wia">
+                                        <rect key="frame" x="0.0" y="800" width="768" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XuP-Wb-Wia" id="tB6-YL-bX3">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Best-Combo-Restaurant_1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Y29-6o-93r">
+                                                    <rect key="frame" x="20" y="10" width="100" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Combo 9" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ou-el-vha">
+                                                    <rect key="frame" x="139" y="20" width="161" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$ 1.990" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3S-3V-MsN">
+                                                    <rect key="frame" x="144" y="77" width="161" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="yhv-Qf-n9g" id="bep-p8-E5P"/>
+                            <outlet property="delegate" destination="yhv-Qf-n9g" id="vVf-Ft-CoV"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="csC-dI-4lO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2169" y="-329"/>
+        </scene>
+        <!--Combo Details View Controller-->
+        <scene sceneID="NL0-9d-qRV">
+            <objects>
+                <viewController id="3k7-kD-Zpp" customClass="KHDComboDetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qm0-Or-XYu"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Db-IO-cLF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Nb6-84-hG6">
+                        <rect key="frame" x="0.0" y="44" width="768" height="781"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="background.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="86s-d9-oeT">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="781"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <view alpha="0.30000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0A-9n-Dc8">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="781"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Best-Combo-Restaurant_3.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="mMh-H3-W2C">
+                                <rect key="frame" x="229" y="98" width="150" height="110"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Combo 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyK-Xp-1Bt">
+                                <rect key="frame" x="417" y="98" width="122" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="122" id="Gvn-n2-CGV"/>
+                                    <constraint firstAttribute="height" constant="27" id="K1z-OM-Whe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GJ2-0i-o1H">
+                                <rect key="frame" x="480" y="259" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vLT-yV-MZ7">
+                                <rect key="frame" x="480" y="312" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vxK-sT-jxE">
+                                <rect key="frame" x="480" y="365" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agranda Papas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9up-if-uoI">
+                                <rect key="frame" x="229" y="252" width="179" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 200" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p1D-bW-fb1">
+                                <rect key="frame" x="417" y="252" width="60" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Bfq-9b-AzQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 200" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chk-qJ-3oR">
+                                <rect key="frame" x="417" y="305" width="60" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 400" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qra-Wp-a31">
+                                <rect key="frame" x="417" y="358" width="60" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agranda Bebida" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0b-o6-gEE">
+                                <rect key="frame" x="229" y="305" width="179" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agrega Helado" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5PT-bU-p4e">
+                                <rect key="frame" x="229" y="358" width="179" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 4.990" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIX-PG-Ra2">
+                                <rect key="frame" x="397" y="152" width="132" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ATH-Nh-aH8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="27"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLZ-O9-Jrw">
+                                <rect key="frame" x="0.0" y="560" width="768" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <view alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hgu-9R-TyC">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="781"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="lG2-FU-EOz">
+                                        <rect key="frame" x="366" y="372" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="n0A-9n-Dc8" firstAttribute="top" secondItem="Nb6-84-hG6" secondAttribute="top" id="0Hj-TG-a0k"/>
+                            <constraint firstItem="p1D-bW-fb1" firstAttribute="leading" secondItem="UyK-Xp-1Bt" secondAttribute="leading" id="34G-ao-pE4"/>
+                            <constraint firstItem="5PT-bU-p4e" firstAttribute="top" secondItem="u0b-o6-gEE" secondAttribute="bottom" constant="8" symbolic="YES" id="3hC-xB-SCA"/>
+                            <constraint firstItem="vLT-yV-MZ7" firstAttribute="leading" secondItem="vxK-sT-jxE" secondAttribute="leading" id="4lR-KQ-76z"/>
+                            <constraint firstItem="p1D-bW-fb1" firstAttribute="top" secondItem="kIX-PG-Ra2" secondAttribute="bottom" constant="70" id="6Dk-U1-axZ"/>
+                            <constraint firstItem="p1D-bW-fb1" firstAttribute="centerY" secondItem="GJ2-0i-o1H" secondAttribute="centerY" id="8Vb-8J-Awn"/>
+                            <constraint firstItem="Hgu-9R-TyC" firstAttribute="top" secondItem="86s-d9-oeT" secondAttribute="top" id="8jJ-0b-8vY"/>
+                            <constraint firstItem="vxK-sT-jxE" firstAttribute="top" secondItem="vLT-yV-MZ7" secondAttribute="bottom" constant="22" id="Ayq-ew-raP"/>
+                            <constraint firstItem="u0b-o6-gEE" firstAttribute="baseline" secondItem="chk-qJ-3oR" secondAttribute="baseline" id="Cxx-xm-5MC"/>
+                            <constraint firstItem="UyK-Xp-1Bt" firstAttribute="leading" secondItem="mMh-H3-W2C" secondAttribute="trailing" constant="38" id="FAv-AY-AZt"/>
+                            <constraint firstItem="u0b-o6-gEE" firstAttribute="leading" secondItem="5PT-bU-p4e" secondAttribute="leading" id="GSs-4q-57d"/>
+                            <constraint firstAttribute="trailing" secondItem="n0A-9n-Dc8" secondAttribute="trailing" id="H7F-RI-9WI"/>
+                            <constraint firstItem="GJ2-0i-o1H" firstAttribute="trailing" secondItem="kIX-PG-Ra2" secondAttribute="trailing" id="JFx-yQ-s5N"/>
+                            <constraint firstItem="9up-if-uoI" firstAttribute="leading" secondItem="mMh-H3-W2C" secondAttribute="leading" id="K67-sC-5tW"/>
+                            <constraint firstItem="p1D-bW-fb1" firstAttribute="trailing" secondItem="chk-qJ-3oR" secondAttribute="trailing" id="KGU-hk-OfF"/>
+                            <constraint firstItem="p1D-bW-fb1" firstAttribute="baseline" secondItem="9up-if-uoI" secondAttribute="baseline" id="LbR-hs-djF"/>
+                            <constraint firstItem="chk-qJ-3oR" firstAttribute="top" secondItem="p1D-bW-fb1" secondAttribute="bottom" constant="8" symbolic="YES" id="ODk-cf-KnT"/>
+                            <constraint firstAttribute="bottom" secondItem="n0A-9n-Dc8" secondAttribute="bottom" id="Pmc-lf-0iZ"/>
+                            <constraint firstItem="chk-qJ-3oR" firstAttribute="leading" secondItem="p1D-bW-fb1" secondAttribute="leading" id="U1D-NB-VyH"/>
+                            <constraint firstItem="Qra-Wp-a31" firstAttribute="trailing" secondItem="chk-qJ-3oR" secondAttribute="trailing" id="UTv-1S-gqI"/>
+                            <constraint firstItem="vxK-sT-jxE" firstAttribute="centerY" secondItem="Qra-Wp-a31" secondAttribute="centerY" id="WS9-ue-zPY"/>
+                            <constraint firstItem="Qra-Wp-a31" firstAttribute="baseline" secondItem="5PT-bU-p4e" secondAttribute="baseline" id="Wi4-eO-Vyv"/>
+                            <constraint firstItem="UyK-Xp-1Bt" firstAttribute="top" secondItem="mMh-H3-W2C" secondAttribute="top" id="X5G-2i-owh"/>
+                            <constraint firstItem="GJ2-0i-o1H" firstAttribute="leading" secondItem="vLT-yV-MZ7" secondAttribute="leading" id="YwV-0Y-IOj"/>
+                            <constraint firstItem="n0A-9n-Dc8" firstAttribute="top" secondItem="86s-d9-oeT" secondAttribute="top" id="Ywk-jo-7M0"/>
+                            <constraint firstItem="GJ2-0i-o1H" firstAttribute="top" secondItem="kIX-PG-Ra2" secondAttribute="bottom" constant="77" id="aPv-Rn-Wdp"/>
+                            <constraint firstItem="fLZ-O9-Jrw" firstAttribute="trailing" secondItem="n0A-9n-Dc8" secondAttribute="trailing" id="bOo-E4-KCj"/>
+                            <constraint firstItem="9up-if-uoI" firstAttribute="trailing" secondItem="u0b-o6-gEE" secondAttribute="trailing" id="bi0-JK-tU4"/>
+                            <constraint firstItem="Hgu-9R-TyC" firstAttribute="bottom" secondItem="86s-d9-oeT" secondAttribute="bottom" id="cFh-mx-Ewv"/>
+                            <constraint firstItem="9up-if-uoI" firstAttribute="top" secondItem="p1D-bW-fb1" secondAttribute="top" id="cG4-Cc-JLu"/>
+                            <constraint firstItem="fLZ-O9-Jrw" firstAttribute="leading" secondItem="n0A-9n-Dc8" secondAttribute="leading" id="ceD-au-NVq"/>
+                            <constraint firstItem="mMh-H3-W2C" firstAttribute="top" secondItem="qm0-Or-XYu" secondAttribute="bottom" constant="98" id="cex-xF-uY1"/>
+                            <constraint firstItem="Qra-Wp-a31" firstAttribute="top" secondItem="chk-qJ-3oR" secondAttribute="bottom" constant="8" symbolic="YES" id="cx5-Ld-bv0"/>
+                            <constraint firstItem="Qra-Wp-a31" firstAttribute="leading" secondItem="chk-qJ-3oR" secondAttribute="leading" id="hbT-7n-H1X"/>
+                            <constraint firstItem="GJ2-0i-o1H" firstAttribute="leading" secondItem="p1D-bW-fb1" secondAttribute="trailing" constant="3" id="iLk-zA-V7D"/>
+                            <constraint firstItem="9up-if-uoI" firstAttribute="leading" secondItem="u0b-o6-gEE" secondAttribute="leading" id="kLU-oO-jqR"/>
+                            <constraint firstItem="u0b-o6-gEE" firstAttribute="top" secondItem="9up-if-uoI" secondAttribute="bottom" constant="8" symbolic="YES" id="oiQ-Yi-jDb"/>
+                            <constraint firstItem="chk-qJ-3oR" firstAttribute="centerY" secondItem="vLT-yV-MZ7" secondAttribute="centerY" id="poy-d5-9tx"/>
+                            <constraint firstItem="Hgu-9R-TyC" firstAttribute="trailing" secondItem="fLZ-O9-Jrw" secondAttribute="trailing" id="r5g-zo-vY4"/>
+                            <constraint firstItem="kIX-PG-Ra2" firstAttribute="leading" secondItem="mMh-H3-W2C" secondAttribute="trailing" constant="18" id="tEe-vh-h4G"/>
+                            <constraint firstItem="86s-d9-oeT" firstAttribute="leading" secondItem="fLZ-O9-Jrw" secondAttribute="leading" id="tS0-9L-c0o"/>
+                            <constraint firstItem="Hgu-9R-TyC" firstAttribute="leading" secondItem="n0A-9n-Dc8" secondAttribute="leading" id="tSo-ss-uhZ"/>
+                            <constraint firstItem="n0A-9n-Dc8" firstAttribute="bottom" secondItem="86s-d9-oeT" secondAttribute="bottom" id="tpe-5R-94L"/>
+                            <constraint firstItem="p1D-bW-fb1" firstAttribute="leading" secondItem="9up-if-uoI" secondAttribute="trailing" constant="9" id="u4K-0v-gUK"/>
+                            <constraint firstItem="kIX-PG-Ra2" firstAttribute="top" secondItem="UyK-Xp-1Bt" secondAttribute="bottom" constant="27" id="u7e-T5-pUj"/>
+                            <constraint firstItem="86s-d9-oeT" firstAttribute="leading" secondItem="Nb6-84-hG6" secondAttribute="leading" id="vfa-Df-rDd"/>
+                            <constraint firstItem="6Db-IO-cLF" firstAttribute="top" secondItem="fLZ-O9-Jrw" secondAttribute="bottom" constant="5" id="wXk-P9-wFn"/>
+                            <constraint firstItem="mMh-H3-W2C" firstAttribute="leading" secondItem="Nb6-84-hG6" secondAttribute="leading" constant="229" id="xWg-VR-XDQ"/>
+                            <constraint firstItem="vLT-yV-MZ7" firstAttribute="top" secondItem="GJ2-0i-o1H" secondAttribute="bottom" constant="22" id="yGn-dZ-RcR"/>
+                            <constraint firstItem="n0A-9n-Dc8" firstAttribute="trailing" secondItem="86s-d9-oeT" secondAttribute="trailing" id="ymr-qG-uJb"/>
+                            <constraint firstItem="5PT-bU-p4e" firstAttribute="trailing" secondItem="u0b-o6-gEE" secondAttribute="trailing" id="zMn-XV-IXl"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="o1I-48-vIo">
+                        <barButtonItem key="rightBarButtonItem" title="Comprar!" id="Y7V-nP-Uw0">
+                            <connections>
+                                <action selector="goPayUIButton:" destination="3k7-kD-Zpp" id="1c2-oY-e5I"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="addIceCreamUISwitch" destination="vxK-sT-jxE" id="GSK-Zv-rYJ"/>
+                        <outlet property="amountUILabel" destination="kIX-PG-Ra2" id="xBS-8a-RcC"/>
+                        <outlet property="drinksUIPickerView" destination="fLZ-O9-Jrw" id="y8f-HV-glz"/>
+                        <outlet property="overlayUIView" destination="Hgu-9R-TyC" id="F86-GH-cc5"/>
+                        <outlet property="superSizeFriesUISwitch" destination="GJ2-0i-o1H" id="ay3-H4-sZ3"/>
+                        <outlet property="superSizeSoftDrinkUISwitch" destination="vLT-yV-MZ7" id="u34-CP-zS3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GgX-un-vKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3223" y="-329"/>
+        </scene>
+        <!--Landing View Controller-->
+        <scene sceneID="PCl-wV-ypj">
+            <objects>
+                <viewController storyboardIdentifier="KHDLandingViewController" id="fQk-F1-FWP" customClass="KHDLandingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IIX-4G-Dra"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z55-Wu-HkG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hZg-wg-3U3">
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="background.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="ozX-fl-H8S">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Best-Combo-Restaurant_3.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="3Or-rc-qT9">
+                                <rect key="frame" x="229" y="238" width="150" height="110"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <view alpha="0.30000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBo-FL-MMd">
+                                <rect key="frame" x="160" y="206" width="446" height="515"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Combo 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4s-da-RIl">
+                                <rect key="frame" x="417" y="238" width="122" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="arA-x7-83g"/>
+                                    <constraint firstAttribute="width" constant="122" id="dWy-Pn-lPW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 4.990" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APR-HM-zGq">
+                                <rect key="frame" x="397" y="292" width="132" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="FF0-Yt-kEx"/>
+                                    <constraint firstAttribute="width" constant="132" id="tKm-dG-UhJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="27"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agrandaste tus Papas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RnB-Em-vdR">
+                                <rect key="frame" x="239" y="481" width="280" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="jqu-Of-gct"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tu bebida es Coca-Cola Normal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBs-Vz-EGU">
+                                <rect key="frame" x="239" y="455" width="280" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="RsP-Jg-hE7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tu pedido es el 74, notificaremos a tu celular cuando esté listo" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="QOB-d0-J1U">
+                                <rect key="frame" x="239" y="356" width="280" height="91"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="OLV-hN-32c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agrandaste tu Bebida" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k00-k9-8Gc">
+                                <rect key="frame" x="239" y="508" width="280" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="4XM-YH-ck9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No agregaste Helado" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbK-zB-nAh">
+                                <rect key="frame" x="239" y="535" width="280" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ozX-fl-H8S" secondAttribute="bottom" id="1tI-Yx-akn"/>
+                            <constraint firstItem="E4s-da-RIl" firstAttribute="top" secondItem="3Or-rc-qT9" secondAttribute="top" id="3Iw-uE-nHS"/>
+                            <constraint firstItem="FBs-Vz-EGU" firstAttribute="top" secondItem="QOB-d0-J1U" secondAttribute="bottom" constant="8" symbolic="YES" id="4rY-nB-N91"/>
+                            <constraint firstItem="E4s-da-RIl" firstAttribute="leading" secondItem="3Or-rc-qT9" secondAttribute="trailing" constant="38" id="BA0-9t-Iad"/>
+                            <constraint firstItem="FBs-Vz-EGU" firstAttribute="trailing" secondItem="QOB-d0-J1U" secondAttribute="trailing" id="EOJ-6t-qwR"/>
+                            <constraint firstItem="ozX-fl-H8S" firstAttribute="leading" secondItem="hZg-wg-3U3" secondAttribute="leading" id="Q7p-qn-mcX"/>
+                            <constraint firstItem="Z55-Wu-HkG" firstAttribute="top" secondItem="IbK-zB-nAh" secondAttribute="bottom" constant="380" id="QGp-wU-fNP"/>
+                            <constraint firstItem="RnB-Em-vdR" firstAttribute="trailing" secondItem="FBs-Vz-EGU" secondAttribute="trailing" id="SnD-yk-mkU"/>
+                            <constraint firstItem="k00-k9-8Gc" firstAttribute="trailing" secondItem="IbK-zB-nAh" secondAttribute="trailing" id="Uhs-Er-33A"/>
+                            <constraint firstItem="3Or-rc-qT9" firstAttribute="leading" secondItem="hZg-wg-3U3" secondAttribute="leading" constant="229" id="UuT-Zg-vTn"/>
+                            <constraint firstAttribute="trailing" secondItem="eBo-FL-MMd" secondAttribute="trailing" constant="162" id="Z0N-EV-rUs"/>
+                            <constraint firstItem="QOB-d0-J1U" firstAttribute="leading" secondItem="FBs-Vz-EGU" secondAttribute="leading" id="aZi-Zb-PIr"/>
+                            <constraint firstItem="k00-k9-8Gc" firstAttribute="trailing" secondItem="RnB-Em-vdR" secondAttribute="trailing" id="cML-PA-EVk"/>
+                            <constraint firstItem="IbK-zB-nAh" firstAttribute="leading" secondItem="k00-k9-8Gc" secondAttribute="leading" id="cb9-DO-keJ"/>
+                            <constraint firstItem="APR-HM-zGq" firstAttribute="leading" secondItem="3Or-rc-qT9" secondAttribute="trailing" constant="18" id="cq1-UJ-GTm"/>
+                            <constraint firstItem="eBo-FL-MMd" firstAttribute="leading" secondItem="hZg-wg-3U3" secondAttribute="leading" constant="160" id="fLO-GI-Ovs"/>
+                            <constraint firstItem="RnB-Em-vdR" firstAttribute="top" secondItem="QOB-d0-J1U" secondAttribute="bottom" constant="34" id="fRp-rD-abN"/>
+                            <constraint firstItem="eBo-FL-MMd" firstAttribute="top" secondItem="IIX-4G-Dra" secondAttribute="bottom" constant="206" id="fhp-D0-6EM"/>
+                            <constraint firstItem="RnB-Em-vdR" firstAttribute="leading" secondItem="FBs-Vz-EGU" secondAttribute="leading" id="lmK-X0-WCE"/>
+                            <constraint firstItem="RnB-Em-vdR" firstAttribute="leading" secondItem="k00-k9-8Gc" secondAttribute="leading" id="mEd-Yf-Giv"/>
+                            <constraint firstItem="APR-HM-zGq" firstAttribute="top" secondItem="E4s-da-RIl" secondAttribute="bottom" constant="27" id="mtA-Iy-rgM"/>
+                            <constraint firstItem="IbK-zB-nAh" firstAttribute="top" secondItem="RnB-Em-vdR" secondAttribute="bottom" constant="9" id="nnM-MK-qeV"/>
+                            <constraint firstItem="QOB-d0-J1U" firstAttribute="leading" secondItem="hZg-wg-3U3" secondAttribute="leading" constant="239" id="oXq-ch-eAB"/>
+                            <constraint firstItem="k00-k9-8Gc" firstAttribute="top" secondItem="FBs-Vz-EGU" secondAttribute="bottom" constant="8" symbolic="YES" id="ogB-Q3-sLe"/>
+                            <constraint firstItem="3Or-rc-qT9" firstAttribute="top" secondItem="IIX-4G-Dra" secondAttribute="bottom" constant="238" id="oq7-cT-Z2f"/>
+                            <constraint firstAttribute="trailing" secondItem="ozX-fl-H8S" secondAttribute="trailing" id="qVI-XK-KaQ"/>
+                            <constraint firstItem="QOB-d0-J1U" firstAttribute="top" secondItem="APR-HM-zGq" secondAttribute="bottom" constant="34" id="sgm-KX-Fgt"/>
+                            <constraint firstItem="ozX-fl-H8S" firstAttribute="top" secondItem="hZg-wg-3U3" secondAttribute="top" id="tXY-F1-EJM"/>
+                            <constraint firstItem="Z55-Wu-HkG" firstAttribute="top" secondItem="k00-k9-8Gc" secondAttribute="bottom" constant="407" id="vtB-vG-pr7"/>
+                            <constraint firstItem="Z55-Wu-HkG" firstAttribute="top" secondItem="eBo-FL-MMd" secondAttribute="bottom" constant="239" id="y8C-At-qC9"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="amountUILabel" destination="APR-HM-zGq" id="WIP-1w-7cl"/>
+                        <outlet property="comboUILabel" destination="E4s-da-RIl" id="AZA-Xc-gaw"/>
+                        <outlet property="iceCreamUILabel" destination="IbK-zB-nAh" id="40O-MB-lzb"/>
+                        <outlet property="orderUILabel" destination="QOB-d0-J1U" id="e0y-YA-eNA"/>
+                        <outlet property="softDrinkUILabel" destination="FBs-Vz-EGU" id="6Eu-GG-SIl"/>
+                        <outlet property="superSizeFriesUILabel" destination="RnB-Em-vdR" id="qO6-7S-R0T"/>
+                        <outlet property="superSizeSoftDrinkUILabel" destination="k00-k9-8Gc" id="itm-Wn-sJR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jjO-h4-2ea" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4294" y="-344"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="q3n-Z9-VLA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ncu-gA-82O" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="63D-C0-JtW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="M0b-ah-tYo" kind="relationship" relationship="rootViewController" id="ZA7-6w-PGJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7kj-8w-D2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="44" y="-329"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Best-Combo-Restaurant_1.jpg" width="109" height="80"/>
+        <image name="Best-Combo-Restaurant_2.jpg" width="109" height="80"/>
+        <image name="Best-Combo-Restaurant_3.jpeg" width="150" height="110"/>
+        <image name="background.jpeg" width="1920" height="1275"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackOpaque"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
