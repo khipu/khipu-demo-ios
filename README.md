@@ -1,4 +1,4 @@
-![khipu icon](https://khipu.com/static/PQ8tVyLGqIdrEmQCTGUHFm06ewfuXIs1D9bmoDo68U1.png)
+![khipu icon](https://khipu.com/assets/logo/logo-purple.png)
 
 # demo-ios
 
