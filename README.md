@@ -1,4 +1,4 @@
-![khipu icon](https://khipu.com/assets/logo/logo-purple.png)
+![khipu icon](https://khipu.com//assets/logo/logo-purple-7e3f1da1a4ce55a5442af1cb7fd48d5a.png)
 
 # demo-ios
 
@@ -21,9 +21,9 @@ Aplicación de demo para integrar khipu en aplicaciones móviles
 
 
 #### Generación del cobro
-*Esta aplicación de DEMO contiene el código de generación de cobro para simplificar el proceso de demostración, pero no debe ser tomado como la norma a seguir. No debes distribuir la ["Llave del cobrador"](https://khipu.com/api/1.2/docs#llave-del-cobrador) en tu código, pues podrían utilizarla para generar cobros asociados a esa cuenta de cobros.*
+*Esta aplicación de DEMO contiene el código de generación de cobro para simplificar el proceso de demostración, pero no debe ser tomado como la norma a seguir. No debes distribuir la ["Llave del cobrador"](https://khipu.com/page/api#llave-del-cobrador) en tu código, pues podrían utilizarla para generar cobros asociados a esa cuenta de cobros.*
 
-Para generar el cobro debes utilizar tu propio servidor web, **nunca desde tu aplicación móvil**. Para ello tienes a tu disposición nuestra [API](https://khipu.com/api/1.2/docs) y más específicamente el apartado [Crear URL para un pago](https://khipu.com/api/1.2/docs#crear-url).
+Para generar el cobro debes utilizar tu propio servidor web, **nunca desde tu aplicación móvil**. Para ello tienes a tu disposición nuestra [API](https://khipu.com/page/api) y más específicamente el apartado [Crear URL para un pago](https://khipu.com/page/api#crear-url).
 
 #### Invocar aplicación móvil khipu
 Para invocar la aplicación móvil **khipu**, el código de ejemplo se encuentra en **KHDComboDetailsViewController.m**. 

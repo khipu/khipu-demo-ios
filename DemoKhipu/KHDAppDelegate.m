@@ -71,7 +71,7 @@
             message = @"El servicio de pago informó que no se ha realizado el pago. Por favor intenta más tarde";
             [[[UIAlertView alloc] initWithTitle:nil message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         }else{
-            // el cobro ha sido realizado.
+            // el cobro debe ser verificado.
             KHDLandingViewController *aKHDLandingViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"KHDLandingViewController"];
             [(UINavigationController *)self.window.rootViewController pushViewController:aKHDLandingViewController animated:NO];
         }

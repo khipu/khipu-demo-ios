@@ -68,7 +68,7 @@
     self.amount = AMOUNT_DEMO;
     self.amountUILabel.text = [NSString stringWithFormat:@"%ld", (long)self.amount];
 
-	self.amountUILabel.text = [self.currencyFormatter stringFromNumber:[NSNumber numberWithInt:self.amount]];
+	self.amountUILabel.text = [self.currencyFormatter stringFromNumber:[NSNumber numberWithInteger:self.amount]];
 
     [self.superSizeFriesUISwitch addTarget:self action:@selector(changedState:) forControlEvents:UIControlEventValueChanged];
     [self.superSizeSoftDrinkUISwitch addTarget:self action:@selector(changedState:) forControlEvents:UIControlEventValueChanged];
@@ -78,7 +78,7 @@
 - (void)changedState:(id)sender
 {
     self.amount = AMOUNT_DEMO + (self.superSizeFriesUISwitch.isOn? SUPER_SIZE_FRIES:0) + (self.superSizeSoftDrinkUISwitch.isOn? SUPER_SIZE_SOFTDRINK:0) + (self.addIceCreamUISwitch.isOn? ADD_ICECREAM:0);
-	self.amountUILabel.text = [self.currencyFormatter stringFromNumber:[NSNumber numberWithInt:self.amount]];
+	self.amountUILabel.text = [self.currencyFormatter stringFromNumber:[NSNumber numberWithInteger:self.amount]];
 
 	[[NSUserDefaults standardUserDefaults] setBool:self.superSizeFriesUISwitch.isOn forKey:@"SUPER_SIZE_FRIES"];
 	[[NSUserDefaults standardUserDefaults] setBool:self.superSizeSoftDrinkUISwitch.isOn forKey:@"SUPER_SIZE_SOFTDRINK"];
@@ -157,7 +157,7 @@
 // que debes utilizar para crear el pago.
 - (void)createPaymentAndProcess {
     
-    // Para crear Pagos, no olvides revisar la documentación de nuestra API https://khipu.com/api/1.2/docs
+    // Para crear Pagos, no olvides revisar la documentación de nuestra API https://khipu.com/page/api
     NSMutableURLRequest *aNSMutableURLRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://khipu.com/api/1.2/createPaymentURL"]];
     
     [aNSMutableURLRequest setHTTPMethod:@"POST"];
@@ -167,7 +167,7 @@
     NSString *body = @"";
     NSString *amount = [NSString stringWithFormat:@"%ld", (long)self.amount];
     NSString *notify_url = @"";
-    NSString *return_url = @"khipudemo://success.khipu.com";
+    NSString *return_url = @"khipudemo://return.khipu.com";
     NSString *cancel_url = @"khipudemo://failure.khipu.com";
     NSString *transaction_id = @"";
     NSString *payer_email = EMAIL_DEMO;
@@ -220,7 +220,7 @@
 {
     // Invocamos la AppStore con la URL de khipu.
     [[UIApplication sharedApplication]
-     openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/us/app/khipu-terminal-de-pagos/id590942451?mt=8"]];
+     openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/cl/app/khipu-terminal-de-pagos/id590942451?mt=8"]];
 }
 
 @end
