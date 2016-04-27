@@ -94,5 +94,8 @@ La función implementada, revisa el parámetro **url**, buscando dos posibles op
 1. La url usa el esquema **khipuinstalled**, que es utilizado por la aplicación móvil de khipu al momento que ésta se inicia después de haber sido instalada.
 2. La url usa el esquema registrado por tu aplicación (en este caso **khipudemo**).
 
+## iOS 9
+
+A partir de iOS 9, se requiere agregar la llave **LSApplicationQueriesSchemes** al plist de tu aplicación. Esta llave es un arreglo al que debes agregar un String con el valor **khipu** 
 
 
