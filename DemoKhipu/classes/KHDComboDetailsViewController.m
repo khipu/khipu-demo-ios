@@ -158,40 +158,85 @@
 - (void)createPaymentAndProcess {
     
     // Para crear Pagos, no olvides revisar la documentación de nuestra API https://khipu.com/page/api
-    NSMutableURLRequest *aNSMutableURLRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://khipu.com/api/1.2/createPaymentURL"]];
+   
     
-    [aNSMutableURLRequest setHTTPMethod:@"POST"];
-    
-    NSString *receiver_id = [NSString stringWithFormat:@"%d", ID_DEL_COBRADOR];
-    NSString *subject = SUBJECT_DEMO;
-    NSString *body = @"";
-    NSString *amount = [NSString stringWithFormat:@"%ld", (long)self.amount];
-    NSString *notify_url = @"";
-    NSString *return_url = @"khipudemo://return.khipu.com";
-    NSString *cancel_url = @"khipudemo://failure.khipu.com";
-    NSString *transaction_id = @"";
-    NSString *payer_email = EMAIL_DEMO;
-    NSString *picture_url = @"";
-    NSString *custom = @"";
-    NSString *bank_id = @"";
-    
-    
-    NSString *postString = [NSString stringWithFormat:@"receiver_id=%@", receiver_id];
-    postString = [NSString stringWithFormat:@"%@&subject=%@", postString,subject];
-    postString = [NSString stringWithFormat:@"%@&body=%@", postString,body];
-    postString = [NSString stringWithFormat:@"%@&amount=%@", postString,amount];
-    postString = [NSString stringWithFormat:@"%@&payer_email=%@", postString,payer_email];
-    postString = [NSString stringWithFormat:@"%@&bank_id=%@", postString,bank_id];
-    postString = [NSString stringWithFormat:@"%@&transaction_id=%@", postString,transaction_id];
-    postString = [NSString stringWithFormat:@"%@&custom=%@", postString,custom];
-    postString = [NSString stringWithFormat:@"%@&notify_url=%@", postString,notify_url];
-    postString = [NSString stringWithFormat:@"%@&return_url=%@", postString,return_url];
-    postString = [NSString stringWithFormat:@"%@&cancel_url=%@", postString,cancel_url];
-    postString = [NSString stringWithFormat:@"%@&picture_url=%@", postString,picture_url];
-    
+    NSString*   receiver_id = [NSString stringWithFormat:@"%d", ID_DEL_COBRADOR];
     // EL SECRET_DEL_COBRADOR NUNCA DEBE QUEDAR EN TU APP. Esta es información privada
-    NSData *saltData = [SECRET_DEL_COBRADOR dataUsingEncoding:NSUTF8StringEncoding];
-    NSData *paramData = [postString dataUsingEncoding:NSUTF8StringEncoding];
+    NSString*           secret = SECRET_DEL_COBRADOR;
+    NSString*           method = @"POST";
+    NSString*           url = @"https://khipu.com/api/2.0/payments";
+    NSMutableString*    toSign = [[NSString stringWithFormat:@"%@&%@",[method uppercaseString],[self percentEncode:url]] mutableCopy];
+    
+    NSString*           amount = [NSString stringWithFormat:@"%ld", (long)self.amount];
+    NSString*           subject = SUBJECT_DEMO;
+    NSString*           payer_email = EMAIL_DEMO;
+    
+    NSDictionary<NSString*,NSString*>*  map = @{@"subject"      :subject,
+                                                @"amount"       :amount,
+                                                @"currency"     :@"CLP",
+                                                @"payer_email"  :payer_email,
+                                                @"return_url"   : @"khipudemo://return.khipu.com",
+                                                @"cancel_url"   : @"khipudemo://failure.khipu.com"};
+    
+    NSArray *sortedMapKeys =  [[map allKeys] sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
+    
+    for (NSString* key in sortedMapKeys) {
+        
+        [toSign appendString:[NSString stringWithFormat:@"&%@=%@",[self percentEncode:key], [self percentEncode:[map objectForKey:key]]]];
+    }
+    
+    NSString*   sign = [self hmacSHA256Secret:secret
+                                       toSign:toSign];
+    
+    NSString*   authorization = [NSString stringWithFormat:@"%@:%@", receiver_id, sign];
+    
+    NSMutableURLRequest *aNSMutableURLRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    
+    [aNSMutableURLRequest setHTTPMethod:method];
+
+    NSMutableString*    postData = [NSMutableString new];
+    
+    for (NSString* key in sortedMapKeys) {
+        
+        if (postData.length > 0) {
+            
+            [postData appendString:@"&"];
+        }
+        [postData appendString:[NSString stringWithFormat:@"%@=%@",[self percentEncode:key], [self percentEncode:[map objectForKey:key]]]];
+    }
+    
+    NSData* postDataBytes = [postData dataUsingEncoding:NSUTF8StringEncoding];
+    
+    [aNSMutableURLRequest setValue:authorization
+                forHTTPHeaderField:@"Authorization"];
+    
+    [aNSMutableURLRequest setValue:@"application/x-www-form-urlencoded"
+                forHTTPHeaderField:@"Content-Type"];
+    
+    [aNSMutableURLRequest setValue:[NSString stringWithFormat:@"%lu",(unsigned long)[postDataBytes length]]
+                forHTTPHeaderField:@"Content-Length"];
+    
+    [aNSMutableURLRequest setHTTPBody:postDataBytes];
+    
+    NSError *error = nil;
+    NSHTTPURLResponse *response = nil;
+    NSData *conn = [NSURLConnection sendSynchronousRequest:aNSMutableURLRequest
+                                         returningResponse:&response
+                                                     error:&error];
+    
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:conn
+                                                         options:0
+                                                           error:nil];
+    
+    NSURL *myURL = [NSURL URLWithString:[json valueForKey:@"app_url"]];
+    
+    [self processPayment:myURL];
+}
+
+- (NSString*)hmacSHA256Secret: (NSString*) secret toSign:(NSString*) toSign {
+    
+    NSData *saltData = [secret dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *paramData = [toSign dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableData* hash = [NSMutableData dataWithLength:CC_SHA256_DIGEST_LENGTH ];
     CCHmac(kCCHmacAlgSHA256, saltData.bytes, saltData.length, paramData.bytes, paramData.length, hash.mutableBytes);
     
@@ -199,25 +244,32 @@
                                 stringByReplacingOccurrencesOfString: @"<" withString: @""]
                                stringByReplacingOccurrencesOfString: @">" withString: @""]
                               stringByReplacingOccurrencesOfString: @" " withString: @""];
-    
-    postString = [NSString stringWithFormat:@"%@&hash=%@", postString, hashNSString];
-    
-    [aNSMutableURLRequest setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    NSError *error = nil;
-    NSHTTPURLResponse *response = nil;
-    NSData *conn = [NSURLConnection sendSynchronousRequest:aNSMutableURLRequest returningResponse:&response error:&error];
-    
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:conn options:0 error:nil];
-    
-    NSURL *myURL = [NSURL URLWithString:[json valueForKey:@"mobile-url"]];
-    
-    
-    [self processPayment:myURL];
+
+    return hashNSString;
 }
 
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
+- (NSString*) percentEncode:(NSString*)string {
+    
+    if (!string) {
+        
+        return @"";
+    }
+    
+    NSString *result = [[self safeUserURLEncode:string] stringByReplacingOccurrencesOfString:@"+" withString:@"%20"];
+    
+    result = [result stringByReplacingOccurrencesOfString:@"*" withString:@"%2A"];
+    result = [result stringByReplacingOccurrencesOfString:@"%7E" withString:@"~"];
+    
+    return result;
+}
+
+- (NSString*) safeUserURLEncode:(NSString *) URLString {
+    
+    return [[NSURL URLWithString:[URLString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLUserAllowedCharacterSet]]] absoluteString];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    
     // Invocamos la AppStore con la URL de khipu.
     [[UIApplication sharedApplication]
      openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/cl/app/khipu-terminal-de-pagos/id590942451?mt=8"]];
